@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Class Registration Form</title>
+
+<style>
+:root { --gap: 1rem; }
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    background: #f7f7f8;
+    color: #222;
+}
+
+/* container utama */
+main {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+section {
+    background: white;
+    border: 1px solid #e6e6e9;
+    border-radius: .75rem;
+    padding: 1.5rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+}
+
+h1 {
+    margin: 0 0 .25rem;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+p.subtitle {
+    text-align: center;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* --- PENTING: grid 2x2 untuk 4 field --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* dua kolom */
+    gap: var(--gap);
+}
+
+/* setiap sel form (label + input) */
+.form-cell {
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+}
+
+/* styling input (mengikuti CSS-mu) */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: .55rem .6rem;
+    border: 1px solid #cfd3d8;
+    border-radius: .5rem;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* checkbox grid (dua kolom) */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .5rem;
+    margin-top: .5rem;
+}
+
+button {
+    display: block;
+    width: 100%;
+    border: none;
+    background: #000;
+    color: white;
+    padding: .75rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+button:hover { opacity: .95; }
+
+/* responsive: ubah ke 1 kolom di layar kecil */
+@media (max-width: 720px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* stack jadi 1 kolom */
+    }
+    .checkbox-group {
+        grid-template-columns: 1fr 1fr; /* tetap 2 kolom bila cukup lebar */
+    }
+}
+</style>
+</head>
+<body>
+  <main>
+    <section>
+      <h1>Class Registration Form</h1>
+      <p class="subtitle">Please fill out the form below to register for our class</p>
+
+      <form>
+        <!-- Grid 2 kolom x 2 baris -->
+        <div class="form-grid">
+          <!-- BARIS 1 KIRI -->
+          <div class="form-cell">
+            <label for="fname">First Name</label>
+            <input id="fname" name="fname" type="text" placeholder="First Name" required>
+          </div>
+
+          <!-- BARIS 1 KANAN -->
+          <div class="form-cell">
+            <label for="lname">Last Name</label>
+            <input id="lname" name="lname" type="text" placeholder="Last Name" required>
+          </div>
+
+          <!-- BARIS 2 KIRI -->
+          <div class="form-cell">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="Email Address" required>
+          </div>
+
+          <!-- BARIS 2 KANAN -->
+          <div class="form-cell">
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="tel" placeholder="Phone Number" required>
+          </div>
+        </div>
+
+        <!-- sisanya tetap di bawah -->
+        <div style="margin-top:1rem;">
+          <label for="level"><b>Class Level</b></label>
+          <select id="level" name="level" required>
+            <option value="">Select your class level</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+          <small>Please choose the appropriate level for your experience</small>
+        </div>
+
+        <div style="margin-top:1rem;">
+          <label><b>Class Days</b></label>
+          <p style="margin:0; font-size:.9rem;">Please select the days you are available to attend class</p>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="days" value="monday"> Monday</label>
+            <label><input type="checkbox" name="days" value="tuesday"> Tuesday</label>
+            <label><input type="checkbox" name="days" value="wednesday"> Wednesday</label>
+            <label><input type="checkbox" name="days" value="thursday"> Thursday</label>
+            <label><input type="checkbox" name="days" value="friday"> Friday</label>
+            <label><input type="checkbox" name="days" value="saturday"> Saturday</label>
+          </div>
+        </div>
+
+        <div style="margin-top:1rem;">
+          <label><input type="checkbox" required> I agree to the terms and conditions of the class registration</label>
+        </div>
+
+        <button type="submit">Register Now!</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

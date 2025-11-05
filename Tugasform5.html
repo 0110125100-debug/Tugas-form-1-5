@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Form</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background-color: #fafafa;
+      margin: 0;
+      padding: 40px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 18px 30px rgba(18,18,18,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
+      border: 1px solid rgba(0,0,0,0.04);
+      width: 380px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      color: #333;
+      margin-bottom: 6px;
+      margin-top: 12px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #bbb;
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.03);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .section-title {
+      margin-top: 20px;
+      font-weight: 600;
+      font-size: 15px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 4px;
+      color: #222;
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 12px;
+      margin-top: 8px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .checkbox-item input {
+      width: 16px;
+      height: 16px;
+    }
+
+    .agreement {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 13px;
+      color: #444;
+    }
+
+    .btn-submit {
+      width: 100%;
+      margin-top: 20px;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(17, 17, 17, 0.12);
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.9;
+    }
+
+    .btn-submit:active {
+      transform: translateY(1px);
+    }
+
+    @media (max-width: 420px) {
+      .form-container {
+        width: 90%;
+        padding: 20px;
+      }
+      .row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <form class="form-container">
+    <h1>Order Form</h1>
+
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="nazka" required>
+
+    <div class="row">
+      <div style="flex:1">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="nazkaaku@gmail.com" required>
+      </div>
+      <div style="flex:1">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" placeholder="+62*******">
+      </div>
+    </div>
+
+    <div class="section-title">Order Details</div>
+
+    <div class="row">
+      <div style="flex:2">
+        <label for="product">Product</label>
+        <select id="product" required>
+          <option value="">Select a product</option>
+          <option value="shirt">Shirt</option>
+          <option value="hoodie">Hoodie</option>
+          <option value="hat">Hat</option>
+        </select>
+      </div>
+      <div style="flex:1">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" value="1" min="1">
+      </div>
+    </div>
+
+    <label>Size</label>
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="checkbox"> Small</label>
+      <label class="checkbox-item"><input type="checkbox"> Medium</label>
+      <label class="checkbox-item"><input type="checkbox"> Large</label>
+      <label class="checkbox-item"><input type="checkbox"> XL</label>
+    </div>
+
+    <label>Color</label>
+    <div class="checkbox-group">
+      <label class="checkbox-item"><input type="checkbox"> green</label>
+      <label class="checkbox-item"><input type="checkbox"> Blue</label>
+      <label class="checkbox-item"><input type="checkbox"> purple</label>
+      <label class="checkbox-item"><input type="checkbox"> Black</label>
+    </div>
+
+    <label for="comments">Additional Comments</label>
+    <textarea id="comments" placeholder="Enter any additional comments or instructions"></textarea>
+
+    <div class="section-title">Payment Details</div>
+
+    <label for="payment">Payment Method</label>
+    <select id="payment" required>
+      <option value="">Select a payment method</option>
+      <option value="credit">Credit Card</option>
+      <option value="transfer">Bank Transfer</option>
+      <option value="cod">Cash on Delivery</option>
+    </select>
+
+    <label class="agreement">
+      <input type="checkbox" required>
+      <span>I accept the terms and conditions.</span>
+    </label>
+
+    <button type="submit" class="btn-submit">Submit Order</button>
+  </form>
+</body>
+</html>
